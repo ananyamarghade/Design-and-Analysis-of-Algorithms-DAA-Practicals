@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+void read1(int arr[], int n){
+	printf("Enter %d elements : ",n);
+	for(int i=0; i<=n-1; i++){
+		scanf("%d",&arr[i]);
+	}
+}
+
+int linearSearch(int arr[],int z, int pos,int key){
+	int flag =0;
+	int i;
+	for(i=0; i<=pos; i++){
+		if (arr[i]==key){
+			flag = 1;
+			break;
+		}
+	}
+	if(flag){
+		return i;
+	}
+	else{
+		return -1;
+	}
+}
+
+void main() {
+	int a[20], n, pos, key;
+	printf("Enter n value : ");
+	scanf("%d", &n);
+	read1(a, n);
+	printf("Enter a key element : ");
+	scanf("%d", &key);
+	pos = linearSearch(a, 0, n - 1, key);
+	if (pos == -1) {
+		printf("The key element %d is not found\n", key);
+	} else {
+		printf("The key element %d is found at position : %d\n", key, pos);
+	}
+}
